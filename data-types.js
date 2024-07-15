@@ -1,6 +1,5 @@
-someNumber = Number;
-someNumber = 123;
-someBool = Boolean;
-someBool = false;
-someUndefined = undefined;
-someString = `String`;
+
+let someNumber = 123;
+let someBool = false;
+let someUndefined = undefined;
+let someString = `String`;
