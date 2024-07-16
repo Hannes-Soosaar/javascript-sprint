@@ -16,4 +16,3 @@ function multiply(a, b) {
 	result = a * b;
 	return result;
 }
-maths;
