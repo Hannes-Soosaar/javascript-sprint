@@ -1,0 +1,1 @@
+const obj = {someBool:false,someNumber:5,someUndefined:undefined,someString:`stuff`};
