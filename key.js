@@ -1,10 +1,9 @@
 function getValueFromKey(object, key) {
 	if (key in object) {
-		return key;
+		return object[key];
 	} else {
         return undefined
 	}
-
 }
 
 function setValueForKey(object, keyValuePair) {
