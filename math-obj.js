@@ -1,4 +1,4 @@
-mathObj = {
+const mathObj = {
 	abs: function (number) {
 		return Math.abs(number);
 	},
