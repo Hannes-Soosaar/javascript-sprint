@@ -10,9 +10,9 @@ function getFirstElement(input) {
 
 function getLastElement(input) {
 	if (typeof input === "string") {
-		return input.charAt(length.input - 1);
+		return input.charAt(input.length - 1);
 	} else if (Array.isArray(input)) {
-		return input[length.input - 1];
+		return input[input.length - 1];
 	} else {
 		return undefined;
 	}
