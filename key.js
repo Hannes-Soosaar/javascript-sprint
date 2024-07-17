@@ -1,8 +1,8 @@
 function getValueFromKey(object, key) {
 	if (key in object) {
-		return object.key;
+		return key;
 	} else {
-        return object
+        return undefined
 	}
 
 }
