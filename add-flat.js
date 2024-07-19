@@ -3,7 +3,7 @@ function sumNestedArray(arr) {
 	let sum;
 	if (Array.isArray(arr)) {
 		flatArr = arr.flat(Infinity);
-        sum = sumArray(arr)
+		sum = sumArray(flatArr);
 	}
 	return undefined;
 }
