@@ -38,7 +38,7 @@ function getFirstArrayIndex(arr, content) {
             return i;	
 		}
 	}
-	return result;
+	return -1;
 }
 
 function getFirstStringIndex(str, char) {
