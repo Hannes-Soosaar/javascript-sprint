@@ -6,8 +6,8 @@ function sumNestedArray(arr) {
 		flatArr = arr.flat(Infinity);
 		sum = sumArray(flatArr);
 	}
-    
-	return undefined;
+
+	return sum;
 }
 
 function sumArray(arr) {
