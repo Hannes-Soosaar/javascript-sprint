@@ -5,15 +5,15 @@ function sliceFunc(arr, start, end) {
 		startIndex = getStringIndex(arr, start);
 		endIndex = getStringIndex(arr, end);
 		if (startIndex === -1 || endIndex === -1 || endIndex < startIndex) {
-			return undefined;
+			return '';
 		} else {
-			return arr.substring(startIndex, endIndex);
+			return arr.substring(startIndex, endIndex+1);
 		}
 	} else if (Array.isArray(arr)) {
 		startIndex = getArrayIndex(arr, start);
 		endIndex = getArrayIndex(arr, end);
 		if (startIndex === -1 || endIndex === -1 || endIndex < startIndex) {
-			return undefined;
+			return [];
 		} else {
 			return arr.slice(startIndex, endIndex + 1);
 		}
