@@ -9,7 +9,8 @@ function printPrettyDate(date) {
 	let amPm = getAmPM(hours);
 
 	if (amPm === "PM") {
-		String(getAmPmTimeFormat(hours)).padStart(2, "0");
+		hours = String(getAmPmTimeFormat(hours)).padStart(2, "0");
+        
 	}
 
 	const daysOfWeek = [
