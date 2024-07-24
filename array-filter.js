@@ -24,6 +24,7 @@ function nameIsLongerThan(object, number) {
 }
 
 function compoundFilter(arr) {
+
     
 }
 
