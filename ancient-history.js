@@ -1,10 +1,9 @@
 function classifyDate(date) {
+    let timeNow = new Date();
 	if (!(date instanceof Date)) {
 		return "invalid date object";
 	}
-
     let deltaYear = getYearDifference(date)
-
 	if ( deltaYear < -1) {
 		return "ancient";
 	} else if (deltaYear > 1) {
@@ -16,6 +15,7 @@ function classifyDate(date) {
 	} else {
 		return "present";
 	}
+
 }
 
 function getYearDifference(date2) {
