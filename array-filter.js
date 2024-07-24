@@ -7,12 +7,6 @@ function filterOutOddNumbers(arr){
    return arr.filter(isEven);
 }
 
-const objects = [
-	{ id: 1, name: "Alice" },
-	{ id: 2, name: "Bob" },
-	{ id: 3, name: "Charlie" },
-];
-
 function filterObjectsByNameLength(arr,length){
     return arr.filter(object => nameIsLongerThan(object,length))
 }
