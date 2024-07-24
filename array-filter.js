@@ -15,8 +15,5 @@ function nameIsLongerThan(object, number) {
 }
 
 function compoundFilter(arr) {
-	// no "code" greater then 5 characters
-	// "category" does not contain `special`
-	// "price" is greater than 50
-	// "location" is not equal to `Underground`
+
 }
