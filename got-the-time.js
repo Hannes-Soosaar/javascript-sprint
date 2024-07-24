@@ -3,9 +3,9 @@ function printPrettyDate(date) {
 	let month = date.getMonth();
 	let day = date.getDay();
 	let dayDate = date.getDate();
-	let hours = date.getHours();
-	let minutes = date.getMinutes();
-	let second = date.getSeconds();
+	let hours = String(date.getHours()).padStart(2, "0");
+	let minutes = String(date.getMinutes()).padStart(2, "0");
+	let second = String(date.getSeconds()).padStart(2, "0");
 	let amPm = getAmPM(hours);
 
 	if (amPm === "PM") {
@@ -63,4 +63,8 @@ function getAmPM(hours) {
 
 function getAmPmTimeFormat(hours) {
 	return hours % 12;
+}
+
+function addLeadingZeroToHours(number){
+    
 }
