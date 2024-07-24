@@ -1,11 +1,3 @@
-// For debugging 
-// const objects = [
-// 	{ name: "Alice" },
-// 	{ name: "Bob" },
-// 	{ name: "Christina" },
-// 	{ name: "David" },
-// 	{ name: "dUX Gc" },
-// ];
 
 function isEven(number) {
 	return number % 2 === 0;
@@ -23,10 +15,26 @@ function nameIsLongerThan(object, number) {
 	return object.name.length <= number;
 }
 
-function compoundFilter(arr) {
-
-
+function compoundFilter(objects) {
+	const filter = {
+		code: 5,
+		category: "special",
+		price: 50,
+		location: "Underground",
+	};
+	return objects.filter((object) => {
+		if (object.code.length < filter.code) {
+			return false;
+		}
+		if (!object.category.includes(filter.category)) {
+			return false;
+		}
+		if (object.price < filter.price) {
+			return false;
+		}
+		if (object.location === filter.location) {
+			return false;
+		}
+		return true;
+	});
 }
-
-
-// console.log(filterObjectsByNameLength(objects,5))
