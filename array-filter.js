@@ -23,13 +23,13 @@ function compoundFilter(objects) {
 		location: "Underground",
 	};
 	return objects.filter((object) => {
-		if (object.code.length < filter.code) {
+		if (object.code.length <= filter.code) {
 			return false;
 		}
-		if (!object.category.includes(filter.category)) {
+		if (object.category.includes(filter.category)) {
 			return false;
 		}
-		if (object.price < filter.price) {
+		if (object.price <= filter.price) {
 			return false;
 		}
 		if (object.location === filter.location) {
