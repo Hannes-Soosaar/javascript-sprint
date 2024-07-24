@@ -20,12 +20,12 @@ function filterObjectsByNameLength(objects, length) {
 }
 
 function nameIsLongerThan(object, number) {
-	return object.name.length < number;
+	return object.name.length <= number;
 }
 
 function compoundFilter(arr) {
 
-    
+
 }
 
 
