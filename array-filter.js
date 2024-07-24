@@ -23,7 +23,9 @@ function nameIsLongerThan(object, number) {
 	return object.name.length < number;
 }
 
-function compoundFilter(arr) {}
+function compoundFilter(arr) {
+    
+}
 
 
 // console.log(filterObjectsByNameLength(objects,5))
