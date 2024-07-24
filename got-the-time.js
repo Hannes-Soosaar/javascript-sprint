@@ -36,7 +36,7 @@ function printPrettyDate(date) {
 		"December",
 	];
 
-	return (
+	log.Console(
 		"Today is " +
 		daysOfWeek[day] +
 		", " +
