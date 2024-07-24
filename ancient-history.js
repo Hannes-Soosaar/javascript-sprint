@@ -4,9 +4,9 @@ function classifyDate(date) {
 		return "invalid date object";
 	}
     let deltaYear = getYearDifference(date)
-	if ( deltaYear < -1) {
+	if ( deltaYear <= -1) {
 		return "ancient";
-	} else if (deltaYear > 1) {
+	} else if (deltaYear >= 1) {
 		return "distant future";
 	} else if (timeNow < date) {
 		return "future";
