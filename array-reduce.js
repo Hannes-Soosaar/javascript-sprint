@@ -6,6 +6,10 @@ function getTotalFromShoppingBasket(shoppingBasket) {
 }
 
 function getAverageAge(people) {
+if (people.length === 0){
+    return 0;
+}
+
 let numberOfPeople = people.length;
 let totalAge = people.reduce(
 		(accumulator, currentItem) => {
