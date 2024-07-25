@@ -1,8 +1,3 @@
-
-
-const carData =
-	'[["Toyota", "Camry", "ABC123", 2014, "diesel"], ["Ford", "Focus", "XYZ456", 1999, "petrol"]]';
-
 function calculateFines(carData) {
 	const cars = JSON.parse(carData);
 	let totalFines = 0;
