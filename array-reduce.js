@@ -1,22 +1,18 @@
 function getTotalFromShoppingBasket(shoppingBasket) {
-	return shoppingBasket.reduce((accumulator, currentItem) => {
+	let totalPrice = shoppingBasket.reduce((accumulator, currentItem) => {
 		return accumulator + currentItem.price;
-	});
-
+	},0);
+    return totalPrice;
 }
 
 function getAverageAge(people) {
-return people.reduce(
-		(accumulator, currentItem, index, array) => {
-			accumulator.total += currentItem.aeg;
-			accumulator.count += 1;
-			if (index === array.length - 1) {
-				return accumulator.total / accumulator.count;
-			}
-			return accumulator;
-		},
-		{ total: 0, count: 0 }
-	);
+let numberOfPeople = people.length;
+let totalAge = people.reduce(
+		(accumulator, currentItem) => {
+			return accumulator +currentItem.age;
+		},0 );
+let averageAge = totalAge/numberOfPeople;
+    return averageAge;
 }
 
 function concatenateObjects(objects) {
@@ -28,6 +24,4 @@ function concatenateObjects(objects) {
 		accumulator[key].push(value);
 		return accumulator;
 	}, {}); 
-
-
 }
