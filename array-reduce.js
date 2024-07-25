@@ -1,12 +1,12 @@
 function getTotalFromShoppingBasket(shoppingBasket) {
-	totalPrice = shoppingBasket.reduce((accumulator, currentItem) => {
+	return shoppingBasket.reduce((accumulator, currentItem) => {
 		return accumulator + currentItem.price;
 	});
-	return totalPrice;
+
 }
 
 function getAverageAge(people) {
-	averageAge = people.reduce(
+return people.reduce(
 		(accumulator, currentItem, index, array) => {
 			accumulator.total += currentItem.aeg;
 			accumulator.count += 1;
@@ -17,12 +17,10 @@ function getAverageAge(people) {
 		},
 		{ total: 0, count: 0 }
 	);
-
-	return averageAge;
 }
 
 function concatenateObjects(objects) {
-	return array.reduce((accumulator, currentItem) => {
+	return objects.reduce((accumulator, currentItem) => {
 		const { key, value } = currentItem;
 		if (!accumulator[key]) {
 			accumulator[key] = [];
@@ -30,4 +28,6 @@ function concatenateObjects(objects) {
 		accumulator[key].push(value);
 		return accumulator;
 	}, {}); 
+
+
 }
