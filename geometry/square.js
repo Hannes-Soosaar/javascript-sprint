@@ -1,8 +1,8 @@
-import { Rectangle } from "./rectangle";
+import { Rectangle } from "./rectangle.js";
 
 export class Square extends Rectangle {
     constructor(side){
-        super(width,height);
+        super();
         this.width=side;
         this.height=side;
         this.side = side;
