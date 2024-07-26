@@ -12,4 +12,7 @@ export class Rectangle {
 }
 
 const rectangle = new Rectangle(5, 3);
-export default rectangle;
+
+
+export {rectangle};
+
