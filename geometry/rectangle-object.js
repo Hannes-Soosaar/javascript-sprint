@@ -1,7 +1,7 @@
 import { Rectangle } from "./rectangle";
 import rectangle1 from "./rectangle";
 
-const rectObj = {
+export const rectObj = {
     width:50,
     height:30,
     area(){

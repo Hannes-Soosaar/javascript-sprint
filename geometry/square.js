@@ -1,6 +1,6 @@
 import { Rectangle } from "./rectangle";
 
-class Square extends Rectangle {
+export class Square extends Rectangle {
     constructor(side){
         super(width,height)
         this.side = side

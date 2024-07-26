@@ -1,4 +1,4 @@
-class Triangle{
+export class Triangle{
     constructor(sideA, sideB, sideC){
         this.sideA= sideA;
         this.sideB= sideB;
