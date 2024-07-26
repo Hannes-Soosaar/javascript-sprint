@@ -2,8 +2,10 @@ import { Rectangle } from "./rectangle";
 
 export class Square extends Rectangle {
     constructor(side){
-        super(width,height)
-        this.side = side
+        super(width,height);
+        this.width=side;
+        this.height=side;
+        this.side = side;
     }
 
 }
