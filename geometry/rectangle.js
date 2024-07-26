@@ -10,5 +10,6 @@ export class Rectangle {
 		return 2 * (this.width + this.height);
 	}
 }
+
 const rectangle = new Rectangle(5, 3);
 export default rectangle;

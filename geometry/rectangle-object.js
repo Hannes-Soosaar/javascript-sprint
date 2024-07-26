@@ -1,6 +1,3 @@
-import { Rectangle } from "./rectangle";
-import rectangle1 from "./rectangle";
-
 export const rectObj = {
     width:50,
     height:30,
