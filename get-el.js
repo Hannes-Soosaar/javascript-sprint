@@ -10,9 +10,9 @@ function getElementsByClassName(className) {
 
 
 function getElementById(id) {
-	return document.getElementById(id);
+	const element = document.getElementById(id);
+    return element ? element : undefined;
 }
-
 
 function getElementsByAttribute(attributeName, attributeValue) {
 	if (attributeValue !== undefined) {
