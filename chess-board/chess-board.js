@@ -15,11 +15,15 @@ function initializeChessboard() {
 				square.classList.add("black-square");
 			}
 			square.addEventListener("click", function () {
-				if (lastClickedSquare) {
-					lastClickedSquare.classList.remove("red-square");
+				if (square.classList.contains("red-square")) {
+					square.classList.remove("red-square");
+				} else {
+					const redSquare = document.querySelector(".red-square");
+					if (redSquare) {
+						redSquare.classList.remove("red-square");
+					}
+					square.classList.add("red-square");
 				}
-				square.classList.add("red-square");
-				lastClickedSquare = square;
 			});
 			chessboard.appendChild(square);
 		}
