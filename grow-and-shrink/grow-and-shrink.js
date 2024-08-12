@@ -51,13 +51,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	function selectLetter(letterDiv) {
 		if (selectedLetterElement) {
 			selectedLetterElement.classList.remove("selected");
-			selectedLetterElement.style.fontWeight = "normal";
 		}
 		selectedLetterElement = letterDiv;
 		selectedLetterElement.classList.add("selected");
-		selectedLetterElement.style.fontWeight = "bold";
-		let storedSize = parseInt(selectedLetterElement.dataset.fontSize);
-		selectedLetterElement.style.fontSize = storedSize + "px";
 	}
 
 	function changeLetter(direction) {
@@ -77,7 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		if (newFontSize >= 10 && newFontSize <= 26) {
 			selectedLetterElement.style.fontSize = newFontSize + "px";
-			selectedLetterElement.dataset.fontSize = newFontSize;
 		} else {
 			return;
 		}

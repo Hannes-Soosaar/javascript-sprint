@@ -24,11 +24,11 @@ body {
     justify-content: center;
     margin: 2px;
     cursor: pointer;
-    transition: font-size 0.2s;
 }
 
 .letter.selected {
     border: 2px solid black;
+    font-weight:bold;
 }
 
 .button-container {
