@@ -17,6 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
 		lettersContainer.appendChild(div);
 	}
 
+    
+	document.body.appendChild(lettersContainer);
+	document.body.appendChild(buttonContainer);
+    
 	let selectedLetter = document.getElementById("a");
 	selectLetter(selectedLetter);
 
@@ -45,8 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	buttonContainer.appendChild(decreaseButton);
 	buttonContainer.appendChild(increaseButton);
 
-	document.body.appendChild(lettersContainer);
-	document.body.appendChild(buttonContainer);
 
 	function selectLetter(letterDiv) {
 		if (selectedLetter) {
