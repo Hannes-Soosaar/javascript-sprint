@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	document.body.appendChild(lettersContainer);
 	document.body.appendChild(buttonContainer);
 
-	let selectedLetter = document.getElementById("a");
-	selectLetter(selectedLetter);
+	let selectedLetterElement = document.getElementById("a");
+	selectLetter(selectedLetterElement);
 
 	const prevButton = document.createElement("button");
 
@@ -35,12 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	const decreaseButton = document.createElement("button");
 	decreaseButton.id = "decrease";
-	decreaseButton.textContent = "-";
+	decreaseButton.textContent = " - ";
 	decreaseButton.addEventListener("click", () => changeFontSize(-2));
 
 	const increaseButton = document.createElement("button");
 	increaseButton.id = "increase";
-	increaseButton.textContent = "+";
+	increaseButton.textContent = " + ";
 	increaseButton.addEventListener("click", () => changeFontSize(2));
 
 	buttonContainer.appendChild(prevButton);
@@ -49,35 +49,33 @@ document.addEventListener("DOMContentLoaded", () => {
 	buttonContainer.appendChild(increaseButton);
 
 	function selectLetter(letterDiv) {
-		if (selectedLetter) {
-			selectedLetter.classList.remove("selected");
-			selectedLetter.style.fontWeight = "normal";
+		if (selectedLetterElement) {
+			selectedLetterElement.classList.remove("selected");
+			selectedLetterElement.style.fontWeight = "normal";
 		}
-		selectedLetter = letterDiv;
-		selectedLetter.classList.add("selected");
-		selectedLetter.style.fontWeight = "bold";
-
-		let storedSize = parseInt(selectedLetter.dataset.fontSize) || 14;
-		selectedLetter.style.fontSize = storedSize + "px";
+		selectedLetterElement = letterDiv;
+		selectedLetterElement.classList.add("selected");
+		selectedLetterElement.style.fontWeight = "bold";
+		let storedSize = parseInt(selectedLetterElement.dataset.fontSize);
+		selectedLetterElement.style.fontSize = storedSize + "px";
 	}
 
 	function changeLetter(direction) {
-		if (!selectedLetter) return;
+		if (!selectedLetterElement) return;
 		const letters = Array.from(lettersContainer.querySelectorAll(".letter"));
-		const currentIndex = letters.indexOf(selectedLetter);
+		const currentIndex = letters.indexOf(selectedLetterElement);
 		let newIndex = (currentIndex + direction + letters.length) % letters.length;
 		selectLetter(letters[newIndex]);
 	}
 
 	function changeFontSize(delta) {
-		let currentSize = parseInt(
-			window.getComputedStyle(selectedLetter).fontSize
+		const currentFontSize = Math.round(
+			parseInt(window.getComputedStyle(selectedLetterElement).fontSize)
 		);
-		let newSize = currentSize + delta;
-		console.log(currentSize);
-		if (newSize >= 10 && newSize <= 26) {
-			selectedLetter.style.fontSize = newSize + "px";
-			selectedLetter.dataset.fontSize = newSize;
+		const newFontSize = currentFontSize + delta;
+		if (newFontSize >= 10 && newFontSize <= 26) {
+			selectedLetterElement.style.fontSize = newFontSize + "px";
+			selectedLetterElement.dataset.fontSize = newFontSize;
 		}
 	}
 });
