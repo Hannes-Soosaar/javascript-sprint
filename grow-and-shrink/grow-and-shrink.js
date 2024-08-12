@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	const decreaseButton = document.getElementById("decrease");
 	const increaseButton = document.getElementById("increase");
 	let selectedLetter = null;
-	let fontSize = 14; 
 
 	for (let i = 0; i < 26; i++) {
 		const letter = String.fromCharCode(65 + i);
@@ -13,7 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		div.classList.add("letter");
 		div.id = letter.toLowerCase();
 		div.textContent = letter;
-		div.style.fontSize = `${fontSize}px`;
+		// div.style.fontSize = `${fontSize}px`;
+		div.style.fontSize = "14px";
 		div.addEventListener("click", () => selectLetter(div));
 		lettersContainer.appendChild(div);
 	}
@@ -45,7 +45,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	function changeFontSize(delta) {
 		if (!selectedLetter) return;
-		fontSize = Math.min(Math.max(fontSize + delta, 10), 26); 
-		selectedLetter.style.fontSize = `${fontSize}px`;
+		let currentSize = parseInt(
+			window.getComputedStyle(selectedLetter).fontSize,
+			10
+		);
+		let newSize = Math.min(Math.max(currentSize + delta, 10), 26);
+		selectedLetter.style.fontSize = `${newSize}px`;
 	}
 });
