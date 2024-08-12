@@ -66,14 +66,12 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	function changeFontSize(delta) {
-		let currentSize = Math.round(
-			parseFloat(window.getComputedStyle(selectedLetter).fontSize)
+		let currentSize = parseInt(
+			window.getComputedStyle(selectedLetter).fontSize
 		);
-		let newSize = Math.min(Math.max(currentSize + delta, 10), 26);
-		selectedLetter.style.fontSize = `${newSize}px`;
+		const newSize = currentSize + delta;
+		if (newFontSize >= 10 && newFontSize <= 26) {
+			selectedLetter.style.fontSize = newSize + "px";
+		}
 	}
-	
 });
-
-
-// comment added.
