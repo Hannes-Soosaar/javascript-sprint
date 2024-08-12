@@ -1,33 +1,29 @@
 const body = document.body;
 
-function createTable() {
-	const table = document.createElement(`table`);
-	table.classList.add(`custom-table`);
-	let rowStartBlack = false;
-
-	for (let i = 1; i < 9; i++) {
-		const row = document.createElement(`tr`);
-		if (i % 2 === 0) {
-			rowStartBlack = true;
-		}
-		for (let j = 1; j < 9; j++) {
-			const cell = document.createElement(`td`);
-			if (!rowStartBlack && j % 2 !== 0) {
-				cell.classList.add(`white-square`);
-			} else if (!rowStartBlack && j % 2 === 0) {
-				cell.classList.add(`black-square`);
-			} else if (rowStartBlack && j % 2 !== 0) {
-				cell.classList.add(`black-square`);
-			} else if (rowStartBlack && j % 2 === 0) {
-				cell.classList.add(`white-square`);
+function initializeChessboard() {
+	const chessboard = document.createElement("div");
+	chessboard.classList.add("chessboard");
+	let lastClickedSquare = null;
+	for (let i = 1; i <= 8; i++) {
+		for (let j = 1; j <= 8; j++) {
+			const square = document.createElement("div");
+			square.classList.add("square");
+			square.id = `${i}-${j}`;
+			if ((i + j) % 2 === 0) {
+				square.classList.add("white-square");
+			} else {
+				square.classList.add("black-square");
 			}
-			row.appendChild(cell);
+			square.addEventListener("click", function () {
+				if (lastClickedSquare) {
+					lastClickedSquare.classList.remove("red-square");
+				}
+				square.classList.add("red-square");
+				lastClickedSquare = square;
+			});
+			chessboard.appendChild(square);
 		}
-		table.appendChild(row);
-		rowStartBlack = false;
 	}
-	document.body.appendChild(table);
+	document.body.appendChild(chessboard);
 }
-
-document.addEventListener("DOMContentLoaded", createTable);
-// body.append(table);
+document.addEventListener("DOMContentLoaded", initializeChessboard);
