@@ -66,15 +66,18 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	function changeFontSize(delta) {
+		console.log("delta is "+ delta)
 		let currentSize = parseInt(
 			window.getComputedStyle(selectedLetter).fontSize
 		);
-
+		console.log("read size"+ window.getComputedStyle(selectedLetter).fontSize);
 		console.log(currentSize);
 
 		let newSize = currentSize + delta;
+		console.log(currentSize);
 		if (newSize >= 10 && newSize <= 26) {
 			selectedLetter.style.fontSize = newSize + "px";
+			console.log ("new value" + selectedLetter.style.fontSize = newSize + "px");
 		}
 	}
 });
