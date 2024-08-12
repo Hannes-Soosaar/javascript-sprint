@@ -34,12 +34,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	const decreaseButton = document.createElement("button");
 	decreaseButton.id = "decrease";
-	decreaseButton.textContent = " - ";
+	decreaseButton.textContent = "-";
 	decreaseButton.addEventListener("click", () => changeFontSize(-2));
 
 	const increaseButton = document.createElement("button");
 	increaseButton.id = "increase";
-	increaseButton.textContent = " + ";
+	increaseButton.textContent = "+";
 	increaseButton.addEventListener("click", () => changeFontSize(2));
 
 	buttonContainer.appendChild(prevButton);
