@@ -76,3 +76,5 @@ document.addEventListener("DOMContentLoaded", () => {
 		selectedLetter.style.fontSize = `${newSize}px`;
 	}
 });
+
+// comment added
