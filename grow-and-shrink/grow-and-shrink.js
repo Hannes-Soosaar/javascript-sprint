@@ -59,7 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	function changeLetter(direction) {
 		if (!selectedLetter) return;
-
 		const letters = Array.from(lettersContainer.querySelectorAll(".letter"));
 		const currentIndex = letters.indexOf(selectedLetter);
 		let newIndex = (currentIndex + direction + letters.length) % letters.length;
@@ -67,14 +66,14 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	function changeFontSize(delta) {
-		if (!selectedLetter) return;
-
 		let currentSize = Math.round(
 			parseFloat(window.getComputedStyle(selectedLetter).fontSize)
 		);
 		let newSize = Math.min(Math.max(currentSize + delta, 10), 26);
 		selectedLetter.style.fontSize = `${newSize}px`;
 	}
+	
 });
 
-// comment added
+
+// comment added.
