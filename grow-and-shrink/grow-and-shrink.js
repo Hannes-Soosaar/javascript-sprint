@@ -69,13 +69,17 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	function changeFontSize(delta) {
+		let letterToChange = document.querySelector(".selected");
 		const currentFontSize = Math.round(
-			parseInt(window.getComputedStyle(selectedLetterElement).fontSize)
+			parseInt(window.getComputedStyle(letterToChange).fontSize)
 		);
 		const newFontSize = currentFontSize + delta;
+
 		if (newFontSize >= 10 && newFontSize <= 26) {
 			selectedLetterElement.style.fontSize = newFontSize + "px";
 			selectedLetterElement.dataset.fontSize = newFontSize;
+		} else {
+			return;
 		}
 	}
 });
