@@ -8,7 +8,7 @@ function initializeChessboard() {
 		for (let j = 1; j <= 8; j++) {
 			const square = document.createElement("div");
 			square.classList.add("square");
-			square.id = `${i}-${j}`;
+			square.id = `square-${i}-${j}`;
 			if ((i + j) % 2 === 0) {
 				square.classList.add("white-square");
 			} else {
