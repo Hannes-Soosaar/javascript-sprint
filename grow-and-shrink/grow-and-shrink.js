@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	selectLetter(selectedLetter);
 
 	const prevButton = document.createElement("button");
+
 	prevButton.id = "prev";
 	prevButton.textContent = " < ";
 	prevButton.addEventListener("click", () => changeLetter(-1));
@@ -55,6 +56,9 @@ document.addEventListener("DOMContentLoaded", () => {
 		selectedLetter = letterDiv;
 		selectedLetter.classList.add("selected");
 		selectedLetter.style.fontWeight = "bold";
+
+		let storedSize = parseInt(selectedLetter.dataset.fontSize) || 14;
+		selectedLetter.style.fontSize = storedSize + "px";
 	}
 
 	function changeLetter(direction) {
@@ -73,6 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		console.log(currentSize);
 		if (newSize >= 10 && newSize <= 26) {
 			selectedLetter.style.fontSize = newSize + "px";
+			selectedLetter.dataset.fontSize = newSize;
 		}
 	}
 });
