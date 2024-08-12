@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		lettersContainer.appendChild(div);
 	}
 
-	let selectedLetter = document.getElementById("square-a");
+	let selectedLetter = document.getElementById("a");
 	selectLetter(selectedLetter);
 
 	const prevButton = document.createElement("button");
