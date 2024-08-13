@@ -18,15 +18,14 @@ function createLinks(teams) {
 		a.style.color = team.secondary;
 
 		li.addEventListener("mouseover", () => {
-			a.style.fontWeight = "bold";
+			a.classList.add("bold");
 		});
 		li.addEventListener("mouseout", () => {
-			a.style.fontWeight = "normal";
+			a.classList.remove("bold");
 		});
 
 		const span = document.createElement("span");
 		span.textContent = " [copy]";
-		span.style.cursor = "pointer";
 		span.addEventListener("click", () => {
 			copyToClipboard(team.url);
 		});
@@ -39,7 +38,6 @@ function createLinks(teams) {
 	document.body.appendChild(ul);
 }
 
-
 function copyToClipboard(text) {
 	navigator.clipboard
 		.writeText(text)
@@ -50,7 +48,6 @@ function copyToClipboard(text) {
 			console.error("Failed to copy text: ", err);
 		});
 }
-
 
 document.addEventListener("DOMContentLoaded", () => {
 	// const teams = [
