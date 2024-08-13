@@ -18,11 +18,9 @@ function createLinks(teams) {
 		a.style.color = team.secondary;
 
 		li.addEventListener("mouseover", () => {
-			a.classList.add("hovered");
 			a.style.fontWeight = "700";
 		});
 		li.addEventListener("mouseout", () => {
-			a.classList.remove("hovered");
 			a.style.fontWeight = "400";
 		});
 
