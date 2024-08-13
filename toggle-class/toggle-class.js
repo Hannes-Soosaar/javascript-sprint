@@ -69,11 +69,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	function highlightParagraph() {
 		const divContainer = document.getElementById("content");
-		const pElement = divContainer.querySelector(`p`);
-		if (pElement.classList.contains("highlight")) {
-			pElement.classList.remove("highlight");
+		if (divContainer.classList.contains("highlight")) {
+			divContainer.classList.remove("highlight");
 		} else {
-			pElement.classList.add("highlight");
+			divContainer.classList.add("highlight");
 		}
 	}
 });
