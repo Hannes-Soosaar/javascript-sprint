@@ -19,10 +19,6 @@
 }
 
 
-#team-list-nav li:hover a {
-    font-weight: bold;
-}
-
 #team-list-nav span {
     margin-left: 10px;
     font-size: 0.9em;
@@ -32,8 +28,4 @@
 
 .bold{
 font-weight: bold;
-}
-
-.normal{
-
 }
