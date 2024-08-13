@@ -1,45 +1,82 @@
 document.addEventListener("DOMContentLoaded", () => {
+	const contentContainer = document.createElement("div");
+	contentContainer.classList.add("content");
+	contentContainer.id = "content";
+	const controlsContainer = document.createElement("div");
+	controlsContainer.classList.add("controls");
 
-    const  contentContainer = document.createElement("div");
-        contentContainer.classList.add("content");
-    const  controlsContainer = document.createElement("div");
-        controlsContainer.classList.add("controls")
+	document.body.appendChild(contentContainer);
+	document.body.appendChild(controlsContainer);
 
-    document.body.appendChild(contentContainer);
-    document.body.appendChild(controlsContainer)
+	const boldButton = document.createElement("button");
+	boldButton.id = "bold";
+	boldButton.textContent = "B";
+	boldButton.addEventListener("click", () => boldParagraph());
 
-    const boldButton = document.createElement("button")
-    boldButton.id="bold"
-    boldButton.textContent= "B"
-    // boldButton.addEventListener();
-   
-    const italicButton = document.createElement("button");
-    italicButton.textContent = "I";
-    italicButton.id = "italic";
-    // italicButton.addEventListener();
+	const italicButton = document.createElement("button");
+	italicButton.textContent = "I";
+	italicButton.id = "italic";
+	italicButton.addEventListener("click", () => italicParagraph());
 
-    const underlineButton = document.createElement("button");
-    underlineButton.textContent = "U";
-    underlineButton.id = "underline";
-    // underlineButton.addEventListener();
+	const underlineButton = document.createElement("button");
+	underlineButton.textContent = "U";
+	underlineButton.id = "underline";
+	underlineButton.addEventListener("click", () => underlineParagraph());
 
-    const highlightButton = document.createElement("button");
-    highlightButton.textContent = "Highlight";
-    highlightButton.id = "highlight";
-    // highlightButton.addEventListener();
+	const highlightButton = document.createElement("button");
+	highlightButton.textContent = "Highlight";
+	highlightButton.id = "highlight";
+	highlightButton.addEventListener("click", () => highlightParagraph());
 
-    let contentParagraph = document.createElement("p");
-    contentParagraph.textContent="code";
+	let contentParagraph = document.createElement("p");
+	contentParagraph.textContent = "code";
 
+	contentContainer.appendChild(contentParagraph);
+	controlsContainer.appendChild(boldButton);
+	controlsContainer.appendChild(italicButton);
+	controlsContainer.appendChild(underlineButton);
+	controlsContainer.appendChild(highlightButton);
 
+	function boldParagraph() {
+		const divContainer = document.getElementById("content");
+		const pElement = divContainer.querySelector(`p`);
+		if (pElement.classList.contains("bold")) {
+			pElement.classList.remove("bold");
+		} else {
+			pElement.classList.add("bold");
+		}
+	}
 
-    contentContainer.appendChild(contentParagraph);
+	function italicParagraph() {
+		console.log("Italic");
+		const divContainer = document.getElementById("content");
+		const pElement = divContainer.querySelector(`p`);
+		if (pElement.classList.contains("italic")) {
+			pElement.classList.remove("italic");
+		} else {
+			pElement.classList.add("italic");
+		}
+	}
 
-    controlsContainer.appendChild(boldButton);
-    controlsContainer.appendChild(italicButton);
-    controlsContainer.appendChild(underlineButton);
-    controlsContainer.appendChild(highlightButton);
+	function underlineParagraph() {
+		console.log("Underline");
+		const divContainer = document.getElementById("content");
+		const pElement = divContainer.querySelector(`p`);
+		if (pElement.classList.contains("underlined")) {
+			pElement.classList.remove("underlined");
+		} else {
+			pElement.classList.add("underlined");
+		}
+	}
 
-
-
+	function highlightParagraph() {
+		console.log("Highlight");
+		const divContainer = document.getElementById("content");
+		const pElement = divContainer.querySelector(`p`);
+		if (pElement.classList.contains("highlight")) {
+			pElement.classList.remove("highlight");
+		} else {
+			pElement.classList.add("highlight");
+		}
+	}
 });
