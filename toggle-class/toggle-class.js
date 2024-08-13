@@ -48,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	function italicParagraph() {
-		console.log("Italic");
 		const divContainer = document.getElementById("content");
 		const pElement = divContainer.querySelector(`p`);
 		if (pElement.classList.contains("italic")) {
@@ -59,18 +58,16 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	function underlineParagraph() {
-		console.log("Underline");
 		const divContainer = document.getElementById("content");
 		const pElement = divContainer.querySelector(`p`);
-		if (pElement.classList.contains("underlined")) {
-			pElement.classList.remove("underlined");
+		if (pElement.classList.contains("underline")) {
+			pElement.classList.remove("underline");
 		} else {
-			pElement.classList.add("underlined");
+			pElement.classList.add("underline");
 		}
 	}
 
 	function highlightParagraph() {
-		console.log("Highlight");
 		const divContainer = document.getElementById("content");
 		const pElement = divContainer.querySelector(`p`);
 		if (pElement.classList.contains("highlight")) {
