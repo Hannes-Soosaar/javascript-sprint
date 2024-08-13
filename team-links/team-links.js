@@ -5,7 +5,7 @@ function createLinks(teams) {
 	}
 
 	const ul = document.createElement("ul");
-	ul.id = "team - list - nav";
+	ul.id = "team-list-nav";
 	ul.className = "team-links";
 
 	teams.forEach((team) => {
