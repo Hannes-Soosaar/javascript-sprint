@@ -18,10 +18,10 @@ function createLinks(teams) {
 		a.style.color = team.secondary;
 
 		li.addEventListener("mouseover", () => {
-			li.classList.add("hovered");
+			a.classList.add("hovered");
 		});
 		li.addEventListener("mouseout", () => {
-			li.classList.remove("hovered");
+			a.classList.remove("hovered");
 		});
 
 		const span = document.createElement("span");
