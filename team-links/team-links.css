@@ -26,6 +26,7 @@
     cursor: pointer;
 }
 
-.bold{
-font-weight: bold;
+
+.hovered {
+    font-weight: 700; 
 }
