@@ -52,19 +52,19 @@ function copyToClipboard(text) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-	// const teams = [
-	// 	{
-	// 		name: "Brazil",
-	// 		url: "https://en.wikipedia.org/wiki/Brazil_national_football_team",
-	// 		primary: "#ffdf00",
-	// 		secondary: "#009c3b",
-	// 	},
-	// 	{
-	// 		name: "Netherlands",
-	// 		url: "https://en.wikipedia.org/wiki/Netherlands_national_football_team",
-	// 		primary: "#f36c21",
-	// 		secondary: "#ffffff",
-	// 	},
-	// ];
+	const teams = [
+		{
+			name: "Brazil",
+			url: "https://en.wikipedia.org/wiki/Brazil_national_football_team",
+			primary: "#ffdf00",
+			secondary: "#009c3b",
+		},
+		{
+			name: "Netherlands",
+			url: "https://en.wikipedia.org/wiki/Netherlands_national_football_team",
+			primary: "#f36c21",
+			secondary: "#ffffff",
+		},
+	];
 	createLinks(teams);
 });

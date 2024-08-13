@@ -1,32 +1,33 @@
 #team-list-nav {
-    list-style-type: none;
-    padding: 0;
+	list-style-type: none;
+	padding: 0;
 }
 
-
-#team-list-nav li {
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+li {
+	margin: 10px 0;
+	padding: 10px;
+	border-radius: 5px;
+	transition: background-color 0.3s;
 }
 
-
-#team-list-nav a {
-    text-decoration: none;
-    transition: font-weight 0.3s;
-    color: inherit; 
+li:hover {
+	cursor: pointer;
 }
 
-
-#team-list-nav span {
-    margin-left: 10px;
-    font-size: 0.9em;
-    color: #555;
-    cursor: pointer;
+a {
+	text-decoration: none;
+	transition: font-weight 0.3s;
+	color: inherit;
 }
 
+span {
+	margin-left: 10px;
+	font-size: 0.9em;
+	color: #555;
+	cursor: pointer;
+}
 
 .hovered {
-    font-weight: 700; 
+	font-weight: 700;
+	cursor: pointer;
 }
