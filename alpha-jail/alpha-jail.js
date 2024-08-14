@@ -10,97 +10,33 @@ document.addEventListener("DOMContentLoaded", () => {
 	let currentCharacter = null;
 	let mouseX = 0;
 	let mouseY = 0;
-    let inJail = false;
+	let isFree = true;
 
-	function createCharacter(letter, x, y) {
+	function createCharacter(letter) {
 		const character = document.createElement("div");
 		character.className = "character follow";
 		character.textContent = letter;
-		character.style.left = `${mouseX-12}px`;
-		character.style.top = `${mouseY-12}px`;
+		character.style.left = `${mouseX - 12}px`;
+		character.style.top = `${mouseY - 12}px`;
 		document.body.appendChild(character);
+		isFree = true;
 		return character;
 	}
 
-	// function detachCurrentCharacter() {
-	// 	if (currentCharacter) {
-	// 		currentCharacter.classList.remove("follow");
-	// 		const isInsideJail = insideZone.contains(currentCharacter);
-
-	// 		if (isInsideJail) {
-	// 			const rect = insideZone.getBoundingClientRect();
-	// 			const charRect = currentCharacter.getBoundingClientRect();
-	// 			const charX = Math.min(
-	// 				Math.max(charRect.left, rect.left),
-	// 				rect.right - charRect.width
-	// 			);
-	// 			const charY = Math.min(
-	// 				Math.max(charRect.top, rect.top),
-	// 				rect.bottom - charRect.height
-	// 			);
-	// 			currentCharacter.style.left = `${charX}px`;
-	// 			currentCharacter.style.top = `${charY}px`;
-    //             console.log("detaching character")
-    //             insideZone.appendChild(currentCharacter);
-
-	// 		} else {
-	// 			outsideZone.appendChild(currentCharacter);
-	// 		}
-
-	// 		currentCharacter = null;
-    //         console.log("character removed");
-	// 	}
-	// }
-
-
-function detachCurrentCharacter() {
-
-    // if the character moves out from the 
-
-
-	if (currentCharacter) {
-		currentCharacter.classList.remove("follow");
-		const isInsideJail = insideZone.contains(currentCharacter);
-		console.log("Is inside jail:", isInsideJail);
-		console.log("Current parent:", currentCharacter.parentElement);
-
-		if (isInsideJail) {
-			console.log("Appending to inside zone");
-			insideZone.appendChild(currentCharacter);
-		} else {
-			console.log("Appending to outside zone");
-			outsideZone.appendChild(currentCharacter);
+	function detachCurrentCharacter() {
+		if (currentCharacter) {
+			currentCharacter.classList.remove("follow");
+			const isInsideJail = insideZone.contains(currentCharacter);
+			const outSideJail = outsideZone.contains(currentCharacter);
+			currentCharacter = null;
+			// console.log("Character detached");
 		}
-		currentCharacter = null;
-		console.log("Character detached");
 	}
-}
 
 	document.addEventListener("keydown", (event) => {
 		if (event.key >= "a" && event.key <= "z") {
 			detachCurrentCharacter();
-			if (currentCharacter) {
-				// currentCharacter.classList.remove("follow");
-				if (insideZone.contains(currentCharacter)) {
-					const rect = insideZone.getBoundingClientRect();
-					const charRect = currentCharacter.getBoundingClientRect();
-					const charX = Math.min(
-						Math.max(charRect.left, rect.left),
-						rect.right - charRect.width
-					);
-					const charY = Math.min(
-						Math.max(charRect.top, rect.top),
-						rect.bottom - charRect.height
-					);
-					currentCharacter.style.left = `${charX}px`;
-					currentCharacter.style.top = `${charY}px`;
-				}
-			}
-			newCharacter = createCharacter(
-				event.key,
-				window.innerWidth / 2,
-				window.innerHeight / 2
-			);
+			newCharacter = createCharacter(event.key);
 			currentCharacter = newCharacter;
 		}
 	});
@@ -108,18 +44,56 @@ function detachCurrentCharacter() {
 	document.addEventListener("mousemove", (event) => {
 		mouseX = event.clientX;
 		mouseY = event.clientY;
-
 		if (currentCharacter) {
 			currentCharacter.style.left = `${mouseX - 12}px`;
 			currentCharacter.style.top = `${mouseY - 12}px`;
+			const rectOut = outsideZone.getBoundingClientRect();
+			const rectIn = insideZone.getBoundingClientRect();
 
-			const isInsideJail = insideZone.contains(event.target);
-			if (isInsideJail) {
+			const buffer = 12;
+
+			const expandedRectOut = {
+				left: rectOut.left,
+				right: rectOut.right + buffer,
+				top: rectOut.top,
+				bottom: rectOut.bottom,
+			};
+			const expandedRectIn = {
+				left: rectIn.left,
+				right: rectIn.right,
+				top: rectIn.top,
+				bottom: rectIn.bottom,
+			};
+
+			const isOutsideJail =
+				mouseX >= expandedRectOut.left &&
+				mouseX <= expandedRectOut.right &&
+				mouseY >= expandedRectOut.top &&
+				mouseY <= expandedRectOut.bottom;
+
+			const isInsideJail =
+				mouseX >= expandedRectIn.left &&
+				mouseX <= expandedRectIn.right &&
+				mouseY >= expandedRectIn.top &&
+				mouseY <= expandedRectIn.bottom;
+
+			// console.log("The collision box right side is " + expandedRectOut.right);
+			// console.log("The collision box left side is " + expandedRectIn.left);
+			// console.log("Mouse coordinates x: " + mouseX);
+
+			// console.log("The mouse is outside the Jail box: " + isOutsideJail);
+			// console.log("The mouse is in the Jail box: " + isInsideJail);
+			// console.log("the mouse left side" + (mouseX + 24));
+
+			if (isInsideJail && !isOutsideJail) {
+				// console.log("Im in Jail");
 				currentCharacter.classList.add("trapped");
-				currentCharacter.classList.remove("follow");
+				isFree = false;
+			} else if (isOutsideJail && !isFree) {
+				currentCharacter.style.left = `${expandedRectIn.left}px`;
+				detachCurrentCharacter();
 			} else {
 				currentCharacter.classList.remove("trapped");
-				currentCharacter.classList.add("follow");
 			}
 		}
 	});

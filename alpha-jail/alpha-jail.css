@@ -2,51 +2,47 @@
 	--orange: orange;
 }
 
-/* Style for the free world and jail */
 .zone {
 	position: absolute;
 	width: 50%;
 	height: 100vh;
 	overflow: hidden;
 	top: 0;
+    color:white;
 }
 
-/* applied to the div */
 .outside {
 	left: 0;
 	background-color: darkblue;
 }
 
-/* applied to the div */
 .inside {
 	right: 0;
 	background-color: black;
 }
-
 /* Style for characters */
 .character {
 	position: absolute;
 	padding: 0px;
-	background-color: white;
 	pointer-events: none;
 	font-size: 24px;
-	text-align: center;
 	line-height: 1.2;
 	width: 24px;
 	height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    text-align: center;
 }
 
 /* Style for characters following the pointer */
 .follow {
 	pointer-events: none;
+    background-color: white;
+    
 }
 
 /* Style for trapped characters */
 .trapped {
 	background-color: var(--orange);
-}
-
-.zone{
-/*    commen */
-text:white;
 }
